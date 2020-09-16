@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  eureka-server1:
+    image: lhz-eureka-server:1.0.0
+    container_name: eureka-server1
+    networks:
+      - sea-framework
+    ports:
+      - 8001:8001
+    environment:
+      - spring.profiles.active=eureka-server1
+
+  eureka-server2:
+    image: lhz-eureka-server:1.0.0
+    container_name: eureka-server2
+    networks:
+      - sea-framework
+    ports:
+      - 8002:8002
+    environment:
+      - spring.profiles.active=eureka-server2
+networks:
+  sea-framework:
+    driver: bridge

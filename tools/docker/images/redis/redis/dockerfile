@@ -1,0 +1,6 @@
+FROM redis:5.0.8
+
+MAINTAINER lvhzh <70148698@qq.com>
+
+COPY rediscluster.conf /etc/redis/rediscluster.conf
+ENTRYPOINT redis-server /etc/redis/rediscluster.conf

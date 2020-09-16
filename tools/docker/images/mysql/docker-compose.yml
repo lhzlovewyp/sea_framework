@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: mysql
+    container_name: mysql
+    domainname: docker
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    ports:
+      - 3307:3306
+    volumes:
+      - "./db:/var/lib/mysql/"
+      - "./mysql-files:/var/lib/mysql-files/"
+      - "./conf:/etc/mysql/"
+      - "./init:/docker-entrypoint-initdb.d/"
+
+networks:
+  default:
+    external:
+      name: docker_sea-framework
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080

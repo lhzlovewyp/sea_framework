@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  config-server:
+    # 指定启动后的容器名
+    container_name: config-server
+    image: lhz-config-server:1.0.0
+    ports:
+      - "8888:8888"
+    networks:
+      - sea-framework
+
+networks:
+  sea-framework:
+    driver: bridge

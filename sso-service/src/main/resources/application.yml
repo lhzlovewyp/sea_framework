@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: sso-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8001/eureka/,http://127.0.0.1:8002/eureka/
+
+server:
+  port: 9091
